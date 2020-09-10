@@ -182,10 +182,40 @@ class _LoginState extends State<Login> {
                           ],
                         ),
                         ),
+                      SizedBox(height: 10.0,),
                       Container(
                         child: Column(
                           children: [
-                            
+                            RaisedButton(
+                              color: Colors.white,
+                              elevation: 0.0,
+                              onPressed: () {},
+                              child: Container(
+                                color: Colors.white,
+                                child: Text("Nie masz konta? Zarejestruj sie"),
+                              ),
+                            )
+                            // Card(
+                            //   shape: RoundedRectangleBorder(
+                            //     borderRadius: BorderRadius.circular(14.0)
+                            //   ),
+                            //   color: Colors.green[700],
+                            //   elevation: 0.0,
+                            //   child: Column(
+                            //     mainAxisSize: MainAxisSize.min,
+                            //     children: <Widget>[
+                            //       const ListTile(
+                            //         title: Text(
+                            //           'Nie masz konta? Zarejestruj sie', 
+                            //           style: TextStyle(
+                            //             color: Colors.white, 
+                            //             fontWeight: FontWeight.w600,
+                            //           ),
+                            //         ),
+                            //       ),
+                            //     ],
+                            //   ),
+                            // ),
                           ],
                         )
                       )
