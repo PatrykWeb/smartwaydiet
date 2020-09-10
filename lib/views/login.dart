@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:smartwaydiet/services/auth.dart';
+// import 'package:smartwaydiet/services/auth.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -6,6 +8,10 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  bool isLoading;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -138,6 +144,7 @@ class _LoginState extends State<Login> {
                                   ),
                                   SizedBox(height: 20.0,),
                                   TextFormField(
+                                    controller: emailController,
                                     obscureText: true,
                                     style: TextStyle(
                                       color: Colors.white
@@ -168,7 +175,7 @@ class _LoginState extends State<Login> {
                                   SizedBox(height: 20.0,),
                                   Container(
                                     child: RaisedButton(
-                                    onPressed: () {},
+                                    onPressed: () => print(emailController.text),
                                     color: Colors.white,
                                     child: Container(
                                       padding: EdgeInsets.only(left: 80.0, right: 80.0),
@@ -195,27 +202,6 @@ class _LoginState extends State<Login> {
                                 child: Text("Nie masz konta? Zarejestruj sie"),
                               ),
                             )
-                            // Card(
-                            //   shape: RoundedRectangleBorder(
-                            //     borderRadius: BorderRadius.circular(14.0)
-                            //   ),
-                            //   color: Colors.green[700],
-                            //   elevation: 0.0,
-                            //   child: Column(
-                            //     mainAxisSize: MainAxisSize.min,
-                            //     children: <Widget>[
-                            //       const ListTile(
-                            //         title: Text(
-                            //           'Nie masz konta? Zarejestruj sie', 
-                            //           style: TextStyle(
-                            //             color: Colors.white, 
-                            //             fontWeight: FontWeight.w600,
-                            //           ),
-                            //         ),
-                            //       ),
-                            //     ],
-                            //   ),
-                            // ),
                           ],
                         )
                       )
@@ -223,42 +209,6 @@ class _LoginState extends State<Login> {
                   ),
                 ),
                 SizedBox(height: 25.0),
-                // Container(
-                //   padding: EdgeInsets.symmetric(vertical: 5.0, horizontal: 5.0),
-                //   decoration: BoxDecoration(
-                //     borderRadius: BorderRadius.only(topLeft: Radius.circular(20.0), topRight: Radius.circular(20.0)),
-                //     color: Colors.white
-                //   ),
-                //   child: Column(
-                //   mainAxisAlignment: MainAxisAlignment.center,
-                //   children: [
-                //     Card(
-                //       shape: RoundedRectangleBorder(
-                //         borderRadius: BorderRadius.circular(14.0)
-                //       ),
-                //       color: Colors.green[700],
-                //       elevation: 0.0,
-                //       child: Container(
-                //         child: Column(
-                //           mainAxisSize: MainAxisSize.min,
-                //           children: <Widget>[
-                //             ListTile(
-                //               title: Text(
-                //                 'Nie posiadasz konta? Kliknij i zarejestruj sie!', 
-                //                 textAlign: TextAlign.center,
-                //                 style: TextStyle(
-                //                   color: Colors.white, 
-                //                   // fontWeight: FontWeight.w600,
-                //                 ),
-                //               ),
-                //             ),
-                //           ],
-                //         ),
-                //       )
-                //     ),
-                //   ],
-                // ),
-                // )
               ],
             )
           ],
