@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:smartwaydiet/services/auth.dart';
 import 'package:smartwaydiet/views/Home/home.dart';
+import 'package:flutter_styled_toast/flutter_styled_toast.dart';
+
 class Login extends StatefulWidget {
   @override
   _LoginState createState() => _LoginState();
@@ -10,6 +12,7 @@ class _LoginState extends State<Login> {
   Authorization _authorization = Authorization();
   String email, password;
   final _formkey = GlobalKey<FormState>();
+
 
   @override
   Widget build(BuildContext context) {
@@ -216,10 +219,22 @@ class _LoginState extends State<Login> {
                                       if(_formkey.currentState.validate()) {
                                         final result = await _authorization.login(email, password);
                                         if(result == true) {
-                                          print("Zalogowałeś się pomyślnie.");
+                                          showToast(
+                                            "Zalogowałeś się pomyślnie", 
+                                            context: context, 
+                                            backgroundColor: Colors.green[400], 
+                                            animation: StyledToastAnimation.slideFromLeft, 
+                                            duration: Duration(seconds: 2),
+                                          );
                                           Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (BuildContext context) => Home()), (route) => false);
                                         } else {
-                                          print("Upsss.., prawdopodobnie podałeś złe dane.");
+                                          showToast(
+                                            "Dane są niepoprawne, spróbuj ponownie", 
+                                            context: context, 
+                                            backgroundColor: Colors.red[300], 
+                                            animation: StyledToastAnimation.slideFromLeft, 
+                                            duration: Duration(seconds: 2)
+                                          );
                                         }
                                       }
                                     },
