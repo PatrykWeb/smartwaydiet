@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:smartwaydiet/services/auth.dart';
 import 'package:smartwaydiet/views/login.dart';
 
 void main() {

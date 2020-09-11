@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:smartwaydiet/services/auth.dart';
-// import 'package:smartwaydiet/services/auth.dart';
-
 class Login extends StatefulWidget {
   @override
   _LoginState createState() => _LoginState();
 }
 
 class _LoginState extends State<Login> {
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
-  bool isLoading;
+  Authorization _authorization = Authorization();
+  // TextEditingController emailController = TextEditingController();
+  // TextEditingController passwordController = TextEditingController();
+  String email, password;
+  final _formkey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -113,14 +113,34 @@ class _LoginState extends State<Login> {
                           child: Column(
                           children: [
                             Form(
+                              key: _formkey,
                               child: Column(
                                 children: [
                                   TextFormField(
+                                    validator: (value) => value.isEmpty ? "The email cannot be blank" : null,
+                                    onChanged: (value) {
+                                      setState(() {
+                                        email = value;
+                                      });
+                                    },
                                     style: TextStyle(
                                       color: Colors.white
                                     ),
                                     cursorColor: Colors.white,
                                     decoration: InputDecoration(
+                                      focusedErrorBorder: UnderlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: Colors.white
+                                        )
+                                      ),
+                                      errorBorder: UnderlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: Colors.white
+                                        )
+                                      ),
+                                      errorStyle: TextStyle(
+                                        color: Colors.white
+                                      ),
                                       hintText: "Podaj login",
                                       hintStyle: TextStyle(
                                         color: Colors.white
@@ -144,13 +164,31 @@ class _LoginState extends State<Login> {
                                   ),
                                   SizedBox(height: 20.0,),
                                   TextFormField(
-                                    controller: emailController,
+                                    validator: (value) => value.isEmpty ? "The password cannot be blank" : null,
+                                    onChanged: (value) {
+                                      setState(() {
+                                        password = value;
+                                      });
+                                    } ,
                                     obscureText: true,
                                     style: TextStyle(
                                       color: Colors.white
                                     ),
                                     cursorColor: Colors.white,
                                     decoration: InputDecoration(
+                                      focusedErrorBorder: UnderlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: Colors.white
+                                        )
+                                      ),
+                                      errorBorder: UnderlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: Colors.white
+                                        )
+                                      ),
+                                      errorStyle: TextStyle(
+                                        color: Colors.white
+                                      ),
                                       hintText: "Podaj hasło",
                                       hintStyle: TextStyle(
                                         color: Colors.white
@@ -175,7 +213,15 @@ class _LoginState extends State<Login> {
                                   SizedBox(height: 20.0,),
                                   Container(
                                     child: RaisedButton(
-                                    onPressed: () => print(emailController.text),
+                                    onPressed: () async {
+                                      if(_formkey.currentState.validate()) {
+                                        final result = await _authorization.login(email, password);
+                                        if(!result) {
+                                          print("Zalogowałeś się pomyślnie");
+                                        }
+                                      }
+                                      await _authorization.login(email, password);
+                                    },
                                     color: Colors.white,
                                     child: Container(
                                       padding: EdgeInsets.only(left: 80.0, right: 80.0),
