@@ -21,6 +21,10 @@ class Authorization {
       jsonData = json.decode(response.body);
       sharedPreferences.setString("token", jsonData["token"]);
       print(jsonData["token"]);
+      
+      return true;
+    } else {
+      return false;
     }
   }
 }

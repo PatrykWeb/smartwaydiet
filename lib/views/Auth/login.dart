@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smartwaydiet/services/auth.dart';
+import 'package:smartwaydiet/views/Home/home.dart';
 class Login extends StatefulWidget {
   @override
   _LoginState createState() => _LoginState();
@@ -7,8 +8,6 @@ class Login extends StatefulWidget {
 
 class _LoginState extends State<Login> {
   Authorization _authorization = Authorization();
-  // TextEditingController emailController = TextEditingController();
-  // TextEditingController passwordController = TextEditingController();
   String email, password;
   final _formkey = GlobalKey<FormState>();
 
@@ -216,11 +215,13 @@ class _LoginState extends State<Login> {
                                     onPressed: () async {
                                       if(_formkey.currentState.validate()) {
                                         final result = await _authorization.login(email, password);
-                                        if(!result) {
-                                          print("Zalogowałeś się pomyślnie");
+                                        if(result == true) {
+                                          print("Zalogowałeś się pomyślnie.");
+                                          Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (BuildContext context) => Home()), (route) => false);
+                                        } else {
+                                          print("Upsss.., prawdopodobnie podałeś złe dane.");
                                         }
                                       }
-                                      await _authorization.login(email, password);
                                     },
                                     color: Colors.white,
                                     child: Container(
