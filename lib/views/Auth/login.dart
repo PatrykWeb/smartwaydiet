@@ -70,9 +70,19 @@ class _LoginState extends State<Login> {
                        ),
                        SizedBox(height: 60.0,), 
                        Form(
+                         key: _formkey,
                          child: Column(
                            children: [
                              TextFormField(
+                              style: TextStyle(
+                                color: Colors.greenAccent[400]
+                              ),
+                              onChanged: (value) {
+                                setState(() {
+                                  email = value;
+                                 });
+                               } ,
+                               validator: (value) => value.isEmpty ? "The email cannot be blank" : null,
                                cursorColor: Colors.greenAccent[400],
                                decoration: InputDecoration(
                                  focusColor: Colors.greenAccent[400],
@@ -86,20 +96,35 @@ class _LoginState extends State<Login> {
                                    color: Colors.greenAccent[400]
                                  ),
                                  border: OutlineInputBorder(
-                                   borderRadius: BorderRadius.circular(30.0)
+                                   borderRadius: BorderRadius.circular(30.0),
                                  ),
                                  enabledBorder: OutlineInputBorder(
                                    borderSide: BorderSide(
                                      color: Colors.greenAccent[400]
                                    ), 
                                    borderRadius: BorderRadius.circular(30.0)
+                                 ),
+                                 focusedBorder: OutlineInputBorder(
+                                   borderSide: BorderSide(color: Colors.greenAccent[400]),
+                                   borderRadius: BorderRadius.circular(30.0)
                                  )
                                ),
                              ),
                              SizedBox(height: 10.0,),
                              TextFormField(
+                               style: TextStyle(
+                                 color: Colors.greenAccent[400]
+                               ),
+                               onChanged: (value) {
+                                  setState(() {
+                                    password = value;
+                                    });
+                                  },
+                               obscureText: true,
+                               validator: (value) => value.isEmpty ? "The password cannot be blank" : null,
                                cursorColor: Colors.greenAccent[400],
                                decoration: InputDecoration(
+                                 focusColor: Colors.greenAccent[400],
                                  contentPadding: EdgeInsets.symmetric(vertical: 16.0, horizontal: 32.0),
                                  suffixIcon: Icon(
                                    Icons.lock_outline, 
@@ -117,8 +142,12 @@ class _LoginState extends State<Login> {
                                      color: Colors.greenAccent[400]
                                    ), 
                                    borderRadius: BorderRadius.circular(30.0)
+                                 ),
+                                  focusedBorder: OutlineInputBorder(
+                                   borderSide: BorderSide(color: Colors.greenAccent[400]),
+                                   borderRadius: BorderRadius.circular(30.0)
                                  )
-                               ),
+                               ),  
                              ),
                              SizedBox(height: 60.0,)
                            ],
@@ -159,7 +188,29 @@ class _LoginState extends State<Login> {
                 fontSize: 18.0
               ),
             ),
-            onPressed: () {},
+            onPressed: () async {
+               if(_formkey.currentState.validate()) {
+                final result = await _authorization.login(email, password);
+                 if(result == true) {
+                   showToast(
+                   "Zalogowałeś się pomyślnie", 
+                   context: context, 
+                   backgroundColor: Colors.green[400], 
+                   animation: StyledToastAnimation.slideFromLeft, 
+                   duration: Duration(seconds: 2),
+                  );
+                    Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (BuildContext context) => Home()), (route) => false);
+                  } else {
+                   showToast(
+                    "Dane są niepoprawne, spróbuj ponownie", 
+                    context: context, 
+                    backgroundColor: Colors.red[300], 
+                    animation: StyledToastAnimation.slideFromLeft, 
+                    duration: Duration(seconds: 2)
+                  );
+                }
+              }
+            },
           )
         ],
       ),
