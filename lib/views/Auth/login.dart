@@ -54,20 +54,6 @@ class _LoginState extends State<Login> {
                      shrinkWrap: true,
                      padding: EdgeInsets.all(32.0),
                      children: [
-                       Text(
-                         "Log In", 
-                         style: TextStyle(
-                           color: Colors.white, 
-                           fontSize: 25.0
-                         ),
-                       ),
-                       SizedBox(height: 10.0),
-                       Text(
-                         "To log in, your dietitian must create an account for you.", 
-                         style: TextStyle(
-                           color: Colors.white
-                         ),
-                       ),
                        SizedBox(height: 60.0,), 
                        Form(
                          key: _formkey,
@@ -149,25 +135,25 @@ class _LoginState extends State<Login> {
                                  )
                                ),  
                              ),
-                             SizedBox(height: 60.0,)
+                             SizedBox(height: 70.0,)
                            ],
                          ),
                        ),
                        Text(
-                         "Welcome", 
+                         "Log In",
+                         textAlign: TextAlign.center, 
                          style: TextStyle(
-                           color: Colors.white,
-                           fontSize: 30.0
+                           color: Colors.white, 
+                           fontSize: 25.0, 
                          ),
-                         textAlign: TextAlign.center,
                        ),
-                       SizedBox(height: 10.0,),
+                       SizedBox(height: 10.0),
                        Text(
-                         "Log in to the application and use the diet recommended by your dietitian!", 
-                         style: TextStyle(
-                           color: Colors.white70
-                         ),
+                         "To log in, your dietitian must create an account for you.", 
                          textAlign: TextAlign.center,
+                         style: TextStyle(
+                           color: Colors.white, 
+                         ),
                        ),
                        SizedBox(height: 60.0,)
                      ],
