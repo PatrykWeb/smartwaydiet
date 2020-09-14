@@ -47,23 +47,24 @@ class _HomeState extends State<Home> {
                   ),
                 ),
                 Container(
-                  padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 50.0),
+                  padding: EdgeInsets.symmetric(horizontal: 0.0, vertical: 50.0),
                   child: Column(
                     children: [
                       Row(
                         children: [
-                         IconButton(
+                         FlatButton(
                            onPressed: () {
                             sharedPreferences.clear();
                             sharedPreferences.commit();
                             Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => Login(),), (route) => false);
                             print(sharedPreferences.getString("token"));
                            },
-                           icon: Icon(
-                             Icons.exit_to_app, 
-                             color: Colors.white,
-                             size: 30.0,
-                           ),
+                          child: Image.network("https://cdn.discordapp.com/attachments/473218411670011904/755093731513860268/logout3.png"),
+                          //  icon: Icon(
+                          //    Icons.exit_to_app, 
+                          //    color: Colors.white,
+                          //    size: 30.0,
+                          //  ),
                          ),
                         ],
                       ),
