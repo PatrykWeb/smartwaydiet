@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smartwaydiet/views/Auth/login.dart';
+import 'package:step_progress_indicator/step_progress_indicator.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -59,7 +60,7 @@ class _HomeState extends State<Home> {
                             Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => Login(),), (route) => false);
                             print(sharedPreferences.getString("token"));
                            },
-                          child: Image.network("https://cdn.discordapp.com/attachments/473218411670011904/755093731513860268/logout3.png"),
+                          child: Image.asset("images/logout.png"),
                           //  icon: Icon(
                           //    Icons.exit_to_app, 
                           //    color: Colors.white,
@@ -86,7 +87,43 @@ class _HomeState extends State<Home> {
                            fontSize: 18.0
                         ),
                       ),
-                     SizedBox(height: 216.0,),
+                      SizedBox(height: 30.0,),
+                      CircularStepProgressIndicator(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              "ILOŚĆ KCAL", 
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w600
+                              ),
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  "2000",
+                                  style: TextStyle(
+                                    color: Colors.white
+                                  ),
+                                )
+                              ],
+                            )
+                          ],
+                        ),
+                          totalSteps: 2000,
+                          currentStep: 600,
+                          stepSize: 10,
+                          selectedColor: Colors.greenAccent[400],
+                          unselectedColor: Colors.grey[200],
+                          padding: 0,
+                          width: 150,
+                          height: 150,
+                          selectedStepSize: 15,
+                          roundedCap: (_, __) => true,
+                      ),
+                     SizedBox(height: 40.0,),
                        Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
