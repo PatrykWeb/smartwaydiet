@@ -27,6 +27,7 @@ dependencies:
   shared_preferences: ^0.5.10
   flutter_styled_toast: ^1.4.0+1
   step_progress_indicator: ^0.2.4+7
+  auto_size_text: ^2.1.0
 
 
   # The following adds the Cupertino Icons font to your application.

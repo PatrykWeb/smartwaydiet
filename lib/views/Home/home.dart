@@ -35,7 +35,7 @@ class _HomeState extends State<Home> {
             Stack(
               children: [
                 Container(
-                  height: 350.0,
+                  height: 420.0,
                   width: MediaQuery.of(context).size.width,
                   decoration: BoxDecoration(
                     image: DecorationImage(
@@ -61,11 +61,6 @@ class _HomeState extends State<Home> {
                             print(sharedPreferences.getString("token"));
                            },
                           child: Image.asset("images/logout.png"),
-                          //  icon: Icon(
-                          //    Icons.exit_to_app, 
-                          //    color: Colors.white,
-                          //    size: 30.0,
-                          //  ),
                          ),
                         ],
                       ),
@@ -87,7 +82,7 @@ class _HomeState extends State<Home> {
                            fontSize: 18.0
                         ),
                       ),
-                      SizedBox(height: 30.0,),
+                      SizedBox(height: 48.0,),
                       CircularStepProgressIndicator(
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -109,11 +104,11 @@ class _HomeState extends State<Home> {
                                   ),
                                 )
                               ],
-                            )
+                            ),
                           ],
                         ),
                           totalSteps: 2000,
-                          currentStep: 600,
+                          currentStep: 1200,
                           stepSize: 10,
                           selectedColor: Colors.greenAccent[400],
                           unselectedColor: Colors.grey[200],
@@ -123,6 +118,131 @@ class _HomeState extends State<Home> {
                           selectedStepSize: 15,
                           roundedCap: (_, __) => true,
                       ),
+                      SizedBox(height: 20.0,),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Column(
+                              children: [
+                                Text(
+                                  "Białka", 
+                                  style: TextStyle(
+                                    color: Colors.white
+                                  ),
+                                ),
+                                Container(
+                                  width: 80.0,
+                                  // padding: EdgeInsets.symmetric(horizontal: 170.0),
+                                  child: StepProgressIndicator(
+                                      totalSteps: 100,
+                                      currentStep: 32,
+                                      size: 8,
+                                      padding: 0,
+                                      selectedColor: Colors.yellow,
+                                      unselectedColor: Colors.cyan,
+                                      roundedEdges: Radius.circular(10),
+                                      selectedGradientColor: LinearGradient(
+                                          begin: Alignment.topLeft,
+                                          end: Alignment.bottomRight,
+                                          colors: [Colors.greenAccent[400], Colors.greenAccent],
+                                      ),
+                                      unselectedGradientColor: LinearGradient(
+                                          begin: Alignment.topLeft,
+                                          end: Alignment.bottomRight,
+                                          colors: [Colors.white, Colors.white],
+                                      ),
+                                  ),
+                                ),
+                                Text(
+                                  "220g", 
+                                  style: TextStyle(
+                                    color: Colors.white
+                                  ),
+                                )
+                              ],
+                            ),
+                            SizedBox(width: 20.0,),
+                            Column(
+                              children: [
+                                Text(
+                                  "Węglowodany", 
+                                  style: TextStyle(
+                                    color: Colors.white
+                                  ),
+                                ),
+                                Container(
+                                  width: 80.0,
+                                  // padding: EdgeInsets.symmetric(horizontal: 170.0),
+                                  child: StepProgressIndicator(
+                                      totalSteps: 100,
+                                      currentStep: 32,
+                                      size: 8,
+                                      padding: 0,
+                                      selectedColor: Colors.yellow,
+                                      unselectedColor: Colors.cyan,
+                                      roundedEdges: Radius.circular(10),
+                                      selectedGradientColor: LinearGradient(
+                                          begin: Alignment.topLeft,
+                                          end: Alignment.bottomRight,
+                                          colors: [Colors.greenAccent[400], Colors.greenAccent],
+                                      ),
+                                      unselectedGradientColor: LinearGradient(
+                                          begin: Alignment.topLeft,
+                                          end: Alignment.bottomRight,
+                                          colors: [Colors.white, Colors.white],
+                                      ),
+                                  ),
+                                ),
+                                Text(
+                                  "210g", 
+                                  style: TextStyle(
+                                    color: Colors.white
+                                  ),
+                                ),
+                              ],
+                            ),
+                            SizedBox(width: 20.0,),
+                             Column(
+                               children: [
+                                 Text(
+                                   "Tłuszcze", 
+                                   style: TextStyle(
+                                     color: Colors.white
+                                   ),
+                                 ),
+                                  Container(
+                                    width: 80.0,
+                                    // padding: EdgeInsets.symmetric(horizontal: 170.0),
+                                    child: StepProgressIndicator(
+                                        totalSteps: 100,
+                                        currentStep: 32,
+                                        size: 8,
+                                        padding: 0,
+                                        selectedColor: Colors.yellow,
+                                        unselectedColor: Colors.cyan,
+                                        roundedEdges: Radius.circular(10),
+                                        selectedGradientColor: LinearGradient(
+                                            begin: Alignment.topLeft,
+                                            end: Alignment.bottomRight,
+                                            colors: [Colors.greenAccent[400], Colors.greenAccent],
+                                        ),
+                                        unselectedGradientColor: LinearGradient(
+                                            begin: Alignment.topLeft,
+                                            end: Alignment.bottomRight,
+                                            colors: [Colors.white, Colors.white],
+                                        ),
+                                    ),
+                                ),
+                                Text(
+                                  "200g",
+                                  style: TextStyle(
+                                    color: Colors.white
+                                  ),
+                                )
+                               ],
+                             ),
+                          ],
+                        ),
                      SizedBox(height: 40.0,),
                        Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
@@ -141,6 +261,45 @@ class _HomeState extends State<Home> {
                           ),
                         ],
                       ),
+                      // Container(
+                      //   padding: EdgeInsets.symmetric(horizontal: 30.0, vertical: 40.0),
+                      //   decoration: BoxDecoration(
+                      //     borderRadius: BorderRadius.only(
+                      //       bottomRight: Radius.circular(20.0), 
+                      //       bottomLeft: Radius.circular(20.0)
+                      //     ),
+                      //     color: Colors.greenAccent[400]
+                      //   ),
+                      //   child: Container(
+                      //     child: Column(
+                      //       children: [
+                      //         // Text(
+                      //         //   "TWÓJ NAJBLIŻSZY POSIŁEK", 
+                      //         //   style: TextStyle(
+                      //         //     fontWeight: FontWeight.w600,
+                      //         //     color: Colors.white
+                      //         //   ),
+                      //         // ),
+                      //       Card(
+                      //         color: Colors.white,
+                      //         child: Column(
+                      //           mainAxisSize: MainAxisSize.min,
+                      //           children: <Widget>[
+                      //             const ListTile(
+                      //               // leading: Icon(Icons.album),r
+                      //               title: Text(
+                      //                 'Spaghetti Bolognese', 
+                      //                 textAlign: TextAlign.start,
+                      //               ),
+                      //               subtitle: Text("Sos bolognese powinno się podawać na makaronie tagliatelle lub pappardelle. Nie powinno się go serwować ze spaghetti, gdyż cienkie nitki mogą nie utrzymać cięższego sosu. Najczęściej tak podaną potrawę posypuje się parmezanem lub drobno startym żółtym serem. Sos można jednak wykorzystać w innych tradycyjnych włoskich potrawach, jak pizza czy lasagne.")
+                      //             ),
+                      //           ],
+                      //         ),
+                      //       ),
+                      //       ],
+                      //     ),
+                      //   ),
+                      // )
                     ],
                   ),
                 ),
