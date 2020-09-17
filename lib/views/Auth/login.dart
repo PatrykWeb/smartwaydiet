@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smartwaydiet/services/auth.dart';
-import 'package:smartwaydiet/views/Home/home.dart';
+import 'package:smartwaydiet/views/BottomBar/bottomBar.dart';
 import 'package:flutter_styled_toast/flutter_styled_toast.dart';
 
 class Login extends StatefulWidget {
@@ -185,7 +185,7 @@ class _LoginState extends State<Login> {
                    animation: StyledToastAnimation.slideFromLeft, 
                    duration: Duration(seconds: 2),
                   );
-                    Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (BuildContext context) => Home()), (route) => false);
+                    Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (BuildContext context) => BottomBar()), (route) => false);
                   } else {
                    showToast(
                     "Dane są niepoprawne, spróbuj ponownie", 

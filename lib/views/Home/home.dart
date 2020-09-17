@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smartwaydiet/views/Auth/login.dart';
 import 'package:step_progress_indicator/step_progress_indicator.dart';
+import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -127,7 +128,7 @@ class _HomeState extends State<Home> {
                                 Text(
                                   "Białka", 
                                   style: TextStyle(
-                                    color: Colors.white
+                                    color: Colors.white70
                                   ),
                                 ),
                                 Container(
@@ -144,7 +145,7 @@ class _HomeState extends State<Home> {
                                       selectedGradientColor: LinearGradient(
                                           begin: Alignment.topLeft,
                                           end: Alignment.bottomRight,
-                                          colors: [Colors.greenAccent[400], Colors.greenAccent],
+                                          colors: [Colors.greenAccent[400], Colors.greenAccent[400]],
                                       ),
                                       unselectedGradientColor: LinearGradient(
                                           begin: Alignment.topLeft,
@@ -161,13 +162,13 @@ class _HomeState extends State<Home> {
                                 )
                               ],
                             ),
-                            SizedBox(width: 20.0,),
+                            SizedBox(width: 35.0,),
                             Column(
                               children: [
                                 Text(
                                   "Węglowodany", 
                                   style: TextStyle(
-                                    color: Colors.white
+                                    color: Colors.white70
                                   ),
                                 ),
                                 Container(
@@ -184,7 +185,7 @@ class _HomeState extends State<Home> {
                                       selectedGradientColor: LinearGradient(
                                           begin: Alignment.topLeft,
                                           end: Alignment.bottomRight,
-                                          colors: [Colors.greenAccent[400], Colors.greenAccent],
+                                          colors: [Colors.greenAccent[400], Colors.greenAccent[400]],
                                       ),
                                       unselectedGradientColor: LinearGradient(
                                           begin: Alignment.topLeft,
@@ -201,13 +202,13 @@ class _HomeState extends State<Home> {
                                 ),
                               ],
                             ),
-                            SizedBox(width: 20.0,),
+                            SizedBox(width: 35.0,),
                              Column(
                                children: [
                                  Text(
                                    "Tłuszcze", 
                                    style: TextStyle(
-                                     color: Colors.white
+                                     color: Colors.white70
                                    ),
                                  ),
                                   Container(
@@ -215,7 +216,7 @@ class _HomeState extends State<Home> {
                                     // padding: EdgeInsets.symmetric(horizontal: 170.0),
                                     child: StepProgressIndicator(
                                         totalSteps: 100,
-                                        currentStep: 32,
+                                        currentStep: 82,
                                         size: 8,
                                         padding: 0,
                                         selectedColor: Colors.yellow,
@@ -224,7 +225,7 @@ class _HomeState extends State<Home> {
                                         selectedGradientColor: LinearGradient(
                                             begin: Alignment.topLeft,
                                             end: Alignment.bottomRight,
-                                            colors: [Colors.greenAccent[400], Colors.greenAccent],
+                                            colors: [Colors.greenAccent[400], Colors.greenAccent[400]],
                                         ),
                                         unselectedGradientColor: LinearGradient(
                                             begin: Alignment.topLeft,
