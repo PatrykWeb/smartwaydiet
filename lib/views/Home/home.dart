@@ -1,8 +1,12 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:smartwaydiet/services/models.dart';
 import 'package:smartwaydiet/views/Auth/login.dart';
 import 'package:step_progress_indicator/step_progress_indicator.dart';
-import 'package:bottom_navy_bar/bottom_navy_bar.dart';
+import "package:http/http.dart" as http;
+import 'package:auto_size_text/auto_size_text.dart';
+
 
 class Home extends StatefulWidget {
   @override
@@ -11,6 +15,25 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   SharedPreferences sharedPreferences;
+
+  @override
+  void initState() {
+    super.initState();
+    checkLoginStatus();
+    takeData();
+  }
+
+    Future<List<Products>>takeData() async {
+        var res = await http.get("https://my-json-server.typicode.com/typicode/demo/posts");
+        var obj = json.decode(res.body);
+        List<Products> productsList = [];
+        for (var u in obj) {
+          Products products = Products(u["index"], u["title"]);
+          productsList.add(products);
+        }
+        print(productsList.length);
+        return productsList;
+    }
 
     checkLoginStatus() async {
      sharedPreferences = await SharedPreferences.getInstance(); 
@@ -22,12 +45,6 @@ class _HomeState extends State<Home> {
   }
 
   @override
-  void initState() {
-    super.initState();
-    checkLoginStatus();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
@@ -36,7 +53,7 @@ class _HomeState extends State<Home> {
             Stack(
               children: [
                 Container(
-                  height: 420.0,
+                  height: 400.0,
                   width: MediaQuery.of(context).size.width,
                   decoration: BoxDecoration(
                     image: DecorationImage(
@@ -244,12 +261,24 @@ class _HomeState extends State<Home> {
                              ),
                           ],
                         ),
-                     SizedBox(height: 40.0,),
+                     SizedBox(height: 30.0,),
                        Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Container(
-                            height: 50.0,
+                            child: Column(
+                              children: [
+                                Text(
+                                  "created by smartwaydiet.com", 
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    color: Colors.black38
+                                  ),
+                                ),
+                              ],
+                            ),
+                            height: 30.0,
                             width: MediaQuery.of(context).size.width,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.only(
@@ -260,47 +289,100 @@ class _HomeState extends State<Home> {
                               color: Color.fromRGBO(247, 247, 247, 1)
                             ),
                           ),
+                          Container(
+                            height: 340.0,
+                            width: MediaQuery.of(context).size.width,
+                            child: FutureBuilder(
+                              future: takeData(),
+                              builder: (BuildContext context, AsyncSnapshot snapshot) {
+                                if(snapshot.data == null) {
+                                  return Container(
+                                    child: Center(
+                                      child: CircularProgressIndicator(
+                                        backgroundColor: Colors.greenAccent[400],
+                                      )
+                                    ),
+                                  );
+                                } else return ListView.builder(
+                                  itemCount: snapshot.data.length,
+                                  itemBuilder: (BuildContext context, int index) {
+                                    return Container(
+                                      padding: EdgeInsets.only(right: 20.0, left: 20.0, top: 10.0),
+                                      child: Container(
+                                        // padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 50.0),
+                                        padding: EdgeInsets.fromLTRB(30.0, 30.0, 30.0, 30.0),
+                                        decoration: BoxDecoration(
+                                          color: Colors.white, 
+                                          boxShadow: [
+                                            BoxShadow(
+                                            color: Colors.black12,
+                                            spreadRadius: 5,
+                                            blurRadius: 7,
+                                            offset: Offset(0, 3),
+                                            ),
+                                          ],
+                                          borderRadius: BorderRadius.circular(10.0)
+                                        ),
+                                        child: Column(
+                                          children: [
+                                            Container(
+                                              alignment: Alignment.topLeft,
+                                              child: Column(
+                                                children: [
+                                                  Text(
+                                                    "9:00"
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                            Container(
+                                              alignment: Alignment.topLeft,
+                                              child: Row(
+                                                children: [
+                                                  Text(
+                                                    snapshot.data[index].title, 
+                                                    textAlign: TextAlign.start,
+                                                    style: TextStyle(
+                                                      fontWeight: FontWeight.w600,
+                                                      fontSize: 18.0
+                                                    ),
+                                                  ),                                           
+                                                 Container(
+                                                   padding: EdgeInsets.only(left: 190.0),
+                                                   child: Row(
+                                                     children: [
+                                                        Image.network("https://cdn.discordapp.com/attachments/473218411670011904/756596810159620146/SPOILER_breakfast.png"), 
+                                                     ],
+                                                   ),
+                                                 )
+                                                ],
+                                              ),
+                                            ), 
+                                            Container(
+                                              alignment: Alignment.centerLeft,
+                                              child: Column(
+                                                children: [
+                                                  Container(
+                                                    width: 200,
+                                                    child: Text(
+                                                      "fadadadadadadadaadadadadadadadada", 
+                                                    ),
+                                                  ),
+                                                  SizedBox(width: 30.0,),
+                                                ],
+                                              ),
+                                            ),                               
+                                          ],
+                                        ),
+                                      ),
+                                    );
+                                  }
+                                );
+                              },
+                            )
+                          ),
                         ],
                       ),
-                      // Container(
-                      //   padding: EdgeInsets.symmetric(horizontal: 30.0, vertical: 40.0),
-                      //   decoration: BoxDecoration(
-                      //     borderRadius: BorderRadius.only(
-                      //       bottomRight: Radius.circular(20.0), 
-                      //       bottomLeft: Radius.circular(20.0)
-                      //     ),
-                      //     color: Colors.greenAccent[400]
-                      //   ),
-                      //   child: Container(
-                      //     child: Column(
-                      //       children: [
-                      //         // Text(
-                      //         //   "TWÓJ NAJBLIŻSZY POSIŁEK", 
-                      //         //   style: TextStyle(
-                      //         //     fontWeight: FontWeight.w600,
-                      //         //     color: Colors.white
-                      //         //   ),
-                      //         // ),
-                      //       Card(
-                      //         color: Colors.white,
-                      //         child: Column(
-                      //           mainAxisSize: MainAxisSize.min,
-                      //           children: <Widget>[
-                      //             const ListTile(
-                      //               // leading: Icon(Icons.album),r
-                      //               title: Text(
-                      //                 'Spaghetti Bolognese', 
-                      //                 textAlign: TextAlign.start,
-                      //               ),
-                      //               subtitle: Text("Sos bolognese powinno się podawać na makaronie tagliatelle lub pappardelle. Nie powinno się go serwować ze spaghetti, gdyż cienkie nitki mogą nie utrzymać cięższego sosu. Najczęściej tak podaną potrawę posypuje się parmezanem lub drobno startym żółtym serem. Sos można jednak wykorzystać w innych tradycyjnych włoskich potrawach, jak pizza czy lasagne.")
-                      //             ),
-                      //           ],
-                      //         ),
-                      //       ),
-                      //       ],
-                      //     ),
-                      //   ),
-                      // )
                     ],
                   ),
                 ),
