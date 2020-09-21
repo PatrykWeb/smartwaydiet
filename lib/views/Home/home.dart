@@ -24,11 +24,11 @@ class _HomeState extends State<Home> {
   }
 
     Future<List<Products>>takeData() async {
-        var res = await http.get("https://my-json-server.typicode.com/typicode/demo/posts");
+        var res = await http.get("http://www.json-generator.com/api/json/get/cfTsQnQBgy?indent=2");
         var obj = json.decode(res.body);
         List<Products> productsList = [];
         for (var u in obj) {
-          Products products = Products(u["index"], u["title"]);
+          Products products = Products(u["index"], u["favoriteFruit"]);
           productsList.add(products);
         }
         print(productsList.length);
@@ -270,15 +270,19 @@ class _HomeState extends State<Home> {
                             child: Column(
                               children: [
                                 Text(
-                                  "created by smartwaydiet.com", 
+                                  "Przewiń palcem w dół, aby sprawdzić swoje posiłki", 
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
-                                    color: Colors.black38
+                                    color: Colors.black54
                                   ),
                                 ),
+                                Icon(
+                                  Icons.arrow_downward,
+                                  color: Colors.greenAccent[400],
+                                )
                               ],
                             ),
-                            height: 30.0,
+                            height: 40.0,
                             width: MediaQuery.of(context).size.width,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.only(
@@ -340,7 +344,7 @@ class _HomeState extends State<Home> {
                                               child: Row(
                                                 children: [
                                                   Text(
-                                                    snapshot.data[index].title, 
+                                                    snapshot.data[index].favoriteFruit, 
                                                     textAlign: TextAlign.start,
                                                     style: TextStyle(
                                                       fontWeight: FontWeight.w600,
@@ -348,10 +352,15 @@ class _HomeState extends State<Home> {
                                                     ),
                                                   ),                                           
                                                  Container(
-                                                   padding: EdgeInsets.only(left: 190.0),
+                                                   alignment: Alignment.topRight,
+                                                  //  padding: EdgeInsets.only(left: 190.0),
                                                    child: Row(
                                                      children: [
-                                                        Image.network("https://cdn.discordapp.com/attachments/473218411670011904/756596810159620146/SPOILER_breakfast.png"), 
+                                                        Image.network(
+                                                          "https://cdn.discordapp.com/attachments/473218411670011904/756596810159620146/SPOILER_breakfast.png", 
+                                                          fit: BoxFit.contain,
+                                                          alignment: Alignment.topRight,
+                                                        ), 
                                                      ],
                                                    ),
                                                  )

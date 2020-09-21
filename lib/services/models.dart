@@ -1,6 +1,6 @@
 class Products {
-  int id;
-  String title;
+  int index;
+  String favoriteFruit;
 
-  Products(this.id, this.title);
+  Products(this.index, this.favoriteFruit);
 }
