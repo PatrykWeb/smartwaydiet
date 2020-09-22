@@ -1,3 +1,4 @@
+  
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -57,7 +58,7 @@ class _HomeState extends State<Home> {
                   width: MediaQuery.of(context).size.width,
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage("images/home.jpg"),
+                      image: AssetImage("images/home3.png"),
                       fit: BoxFit.cover 
                     )
                   ),
