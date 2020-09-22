@@ -268,7 +268,7 @@ class _HomeState extends State<Home> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Container(
-                              height: 400.0,
+                              height: 380.0,
                               width: MediaQuery.of(context).size.width,
                               child: FutureBuilder(
                                 future: takeData(),
