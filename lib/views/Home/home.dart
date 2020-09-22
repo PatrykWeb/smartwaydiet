@@ -311,80 +311,187 @@ class _HomeState extends State<Home> {
                                   itemCount: snapshot.data.length,
                                   itemBuilder: (BuildContext context, int index) {
                                     return Container(
-                                      padding: EdgeInsets.only(right: 20.0, left: 20.0, top: 10.0),
-                                      child: Container(
-                                        // padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 50.0),
-                                        padding: EdgeInsets.fromLTRB(30.0, 30.0, 30.0, 30.0),
-                                        decoration: BoxDecoration(
-                                          color: Colors.white, 
-                                          boxShadow: [
-                                            BoxShadow(
+                                      // height: 100,
+                                      margin: EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 10.0),
+                                      decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        boxShadow: [
+                                          BoxShadow(
                                             color: Colors.black12,
                                             spreadRadius: 5,
                                             blurRadius: 7,
                                             offset: Offset(0, 3),
-                                            ),
-                                          ],
-                                          borderRadius: BorderRadius.circular(10.0)
-                                        ),
-                                        child: Column(
-                                          children: [
-                                            Container(
-                                              alignment: Alignment.topLeft,
+                                          ), 
+                                        ],
+                                        borderRadius: BorderRadius.circular(10.0)
+                                      ),
+                                      child: Row(
+                                        children: [
+                                          Expanded(
+                                            child: Container(
+                                              padding: EdgeInsets.only(left: 16.0),
+                                              width: MediaQuery.of(context).size.width - 100,
                                               child: Column(
+                                                // mainAxisAlignment: MainAxisAlignment.center,
+                                                // crossAxisAlignment: CrossAxisAlignment.start,
                                                 children: [
-                                                  Text(
-                                                    "9:00"
+                                                  SizedBox(height: 10.0,),
+                                                  Column(
+                                                    mainAxisAlignment: MainAxisAlignment.center,
+                                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                                    children: [
+                                                      Container(
+                                                        padding: EdgeInsets.symmetric(vertical: 5.0, horizontal: 5.0),
+                                                        decoration: BoxDecoration(
+                                                          borderRadius: BorderRadius.all(Radius.circular(2.0)),
+                                                          color: Colors.greenAccent[400]
+                                                        ),
+                                                        child: Column(
+                                                          children: [
+                                                          ],
+                                                        ),
+                                                      ),
+                                                      Container(
+                                                        alignment: Alignment.topLeft,
+                                                        child: Column(
+                                                          children: [
+                                                            Text(
+                                                              snapshot.data[index].favoriteFruit, 
+                                                              style: TextStyle(
+                                                                fontWeight: FontWeight.w600
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ),
+                                                    ],
                                                   ),
-                                                ],
-                                              ),
-                                            ),
-                                            Container(
-                                              alignment: Alignment.topLeft,
-                                              child: Row(
-                                                children: [
-                                                  Text(
-                                                    snapshot.data[index].favoriteFruit, 
-                                                    textAlign: TextAlign.start,
-                                                    style: TextStyle(
-                                                      fontWeight: FontWeight.w600,
-                                                      fontSize: 18.0
-                                                    ),
-                                                  ),                                           
-                                                 Container(
-                                                   alignment: Alignment.topRight,
-                                                  //  padding: EdgeInsets.only(left: 190.0),
-                                                   child: Row(
-                                                     children: [
-                                                        Image.network(
-                                                          "https://cdn.discordapp.com/attachments/473218411670011904/756596810159620146/SPOILER_breakfast.png", 
-                                                          fit: BoxFit.contain,
-                                                          alignment: Alignment.topRight,
-                                                        ), 
-                                                     ],
-                                                   ),
-                                                 )
-                                                ],
-                                              ),
-                                            ), 
-                                            Container(
-                                              alignment: Alignment.centerLeft,
-                                              child: Column(
-                                                children: [
+                                                  SizedBox(height: 2.0,),
+                                                  Row(
+                                                    children: [
+                                                      Container(
+                                                        width: 200.0,
+                                                        child: AutoSizeText("adadadadadaadadadaaddadadadadadaadadadadadadadadadadadadadadadadaddasdadadadadadadadadadadada"),
+                                                      )
+                                                    ],
+                                                  ),
+                                                  // Container(
+                                                  //   alignment: Alignment.bottomLeft,
+                                                  //   child: RaisedButton(
+                                                  //     child: Text("Szczegóły"),
+                                                  //     onPressed: (){},
+                                                  //   ),
+                                                  // ),
                                                   Container(
-                                                    width: 200,
-                                                    child: Text(
-                                                      "fadadadadadadadaadadadadadadadada", 
+                                                    child: Row(
+                                                      children: [
+                                                        RaisedButton(
+                                                          onPressed: () {},
+                                                          child: Text("test"),
+                                                        )
+                                                      ],
                                                     ),
-                                                  ),
-                                                  SizedBox(width: 30.0,),
+                                                  )
                                                 ],
                                               ),
-                                            ),                               
-                                          ],
-                                        ),
+                                            ),
+                                          ),
+                                          ClipRRect(
+                                            child: Container(
+                                              width: 100.0,
+                                              child: Column(
+  
+                                                children: [
+                                                  Image.network(
+                                                    "https://media.discordapp.net/attachments/473218411670011904/757990223388082256/photo-1512621776951-a57141f2eefd.jpg?width=701&height=467", 
+                                                    fit: BoxFit.cover,
+                                                  )
+                                                ],
+                                              ),
+                                            ),
+                                            // child: Container(
+                                            //   margin: EdgeInsets.only(right: ),
+                                            //   child: Text(
+                                            //     "17:00", 
+                                            //     style: TextStyle(
+                                            //       fontWeight: FontWeight.w600, 
+                                            //       fontSize: 30.0
+                                            //     ),
+                                            //   )
+                                            // ),
+                                            borderRadius: BorderRadius.circular(10.0),
+                                          )
+                                        ],
                                       ),
                                     );
+                                    // return Container(
+                                    //   padding: EdgeInsets.only(right: 20.0, left: 20.0, top: 10.0),
+                                    //   child: Container(
+                                    //     // padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 50.0),
+                                    //     padding: EdgeInsets.fromLTRB(30.0, 30.0, 30.0, 30.0),
+                                    //     decoration: BoxDecoration(
+                                    //       color: Colors.white, 
+                                    //       boxShadow: [
+                                    //         BoxShadow(
+                                    //         color: Colors.black12,
+                                    //         spreadRadius: 5,
+                                    //         blurRadius: 7,
+                                    //         offset: Offset(0, 3),
+                                    //         ),
+                                    //       ],
+                                    //       borderRadius: BorderRadius.circular(10.0)
+                                    //     ),
+                                    //     child: Column(
+                                    //       children: [
+                                    //         Container(
+                                    //           alignment: Alignment.topLeft,
+                                    //           child: Column(
+                                    //             children: [
+                                    //               Text(
+                                    //                 "9:00"
+                                    //               ),
+                                    //             ],
+                                    //           ),
+                                    //         ),
+                                    //          Container(
+                                    //            alignment: Alignment.center,
+                                    //             child: RaisedButton(
+                                    //             onPressed: () {},
+                                    //             child: Text("Test"),
+                                    //             ),
+                                    //           ),                    
+                                    //         Container(
+                                    //           alignment: Alignment.topLeft,
+                                    //           child: Row(
+                                    //             children: [
+                                    //               Text(
+                                    //                 snapshot.data[index].favoriteFruit, 
+                                    //                 textAlign: TextAlign.start,
+                                    //                 style: TextStyle(
+                                    //                   fontWeight: FontWeight.w600,
+                                    //                   fontSize: 18.0
+                                    //                 ),
+                                    //               ),                                         
+                                    //             ],
+                                    //           ),
+                                    //         ), 
+                                    //         Container(
+                                    //           alignment: Alignment.centerLeft,
+                                    //           child: Column(
+                                    //             children: [
+                                    //               Container(
+                                    //                 width: 200,
+                                    //                 child: Text(
+                                    //                   "fadadadadadadadaadadadadadadadada", 
+                                    //                 ),
+                                    //               ),
+                                    //             ],
+                                    //           ),
+                                    //         ),                               
+                                    //       ],
+                                    //     ),
+                                    //   ),
+                                    // );
                                   }
                                 );
                               },
