@@ -50,6 +50,7 @@ class _BottomBarState extends State<BottomBar> {
         ),
       ),
       bottomNavigationBar: BottomNavyBar(
+        backgroundColor: Colors.black,
         selectedIndex: _currentIndex,
         onItemSelected: (index) {
           setState(() => _currentIndex = index);
