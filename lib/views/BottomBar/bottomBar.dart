@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smartwaydiet/views/Home/home.dart';
+import 'package:smartwaydiet/views/Training/training.dart';
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 
 
@@ -44,7 +45,7 @@ class _BottomBarState extends State<BottomBar> {
           children: <Widget>[
             Home(),
             Container(color: Colors.red,),
-            Container(color: Colors.green,),
+            Training(),
             Container(color: Colors.blue,),
           ],
         ),
@@ -58,6 +59,7 @@ class _BottomBarState extends State<BottomBar> {
         },
         items: <BottomNavyBarItem>[
           BottomNavyBarItem(
+            textAlign: TextAlign.center,
             title: Text('Home'),
             icon: Row(
               children: [
@@ -67,6 +69,7 @@ class _BottomBarState extends State<BottomBar> {
             activeColor: Colors.greenAccent[400]
           ),
           BottomNavyBarItem(
+            textAlign: TextAlign.center,
             title: Text('Item One'),
             icon: Row(
               children: [
@@ -76,7 +79,8 @@ class _BottomBarState extends State<BottomBar> {
             activeColor: Colors.greenAccent[400]
           ),
           BottomNavyBarItem(
-            title: Text('Item One'),
+            textAlign: TextAlign.center,
+            title: Text('Trening'),
             icon: Row(
               children: [
                 Image.network("https://cdn.discordapp.com/attachments/473218411670011904/756142779285110784/dumbbell.png")
@@ -85,6 +89,7 @@ class _BottomBarState extends State<BottomBar> {
             activeColor: Colors.greenAccent[400]
           ),
           BottomNavyBarItem(
+            textAlign: TextAlign.center,
             title: Text('Item One'),
             icon: Row(
               children: [
@@ -94,6 +99,7 @@ class _BottomBarState extends State<BottomBar> {
             activeColor: Colors.greenAccent[400]
           ),
           BottomNavyBarItem(
+            textAlign: TextAlign.center,
             title: Text('Item One'),
             icon: Icon(Icons.settings),
             activeColor: Colors.greenAccent[400]
