@@ -181,7 +181,7 @@ class _LoginState extends State<Login> {
                    showToast(
                    "Zalogowałeś się pomyślnie", 
                    context: context, 
-                   backgroundColor: Colors.green[400], 
+                   backgroundColor: Colors.greenAccent[400],
                    animation: StyledToastAnimation.slideFromLeft, 
                    duration: Duration(seconds: 2),
                   );

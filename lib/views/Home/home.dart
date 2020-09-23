@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smartwaydiet/services/models.dart';
@@ -57,12 +58,12 @@ class _HomeState extends State<Home> {
                   width: MediaQuery.of(context).size.width,
                   decoration: BoxDecoration(
                       image: DecorationImage(
-                          image: AssetImage("images/home3.png"),
+                          image: AssetImage("images/home.jpg"),
                           fit: BoxFit.cover
                       )
                   ),
                   foregroundDecoration: BoxDecoration(
-                      color: Color.fromRGBO(0, 0, 0, 90)
+                      color: Color.fromRGBO(0, 0, 0, 45)
                   ),
                 ),
                 Container(
@@ -371,30 +372,47 @@ class _HomeState extends State<Home> {
                                                         children: [
                                                           Container(
                                                             width: 200.0,
-                                                            child: AutoSizeText("adadadadadaadadadaaddadadadadadaadadadadadadadadadadadadadadadadaddasdadadadadadadadadadadada"),
+                                                            child: AutoSizeText("Sałatka owocowa z dodatkiem bitej śmietany"),
                                                           )
                                                         ],
                                                       ),
-                                                      // Container(
-                                                      //   alignment: Alignment.bottomLeft,
-                                                      //   child: RaisedButton(
-                                                      //     child: Text("Szczegóły"),
-                                                      //     onPressed: (){},
-                                                      //   ),
-                                                      // ),
+                                                      SizedBox(height: 10.0,),
                                                       Container(
                                                         child: Row(
                                                           children: [
                                                             RaisedButton(
+                                                              elevation: 0.0,
                                                               onPressed: () {},
-                                                              child: Text(
-                                                                  "test",
-                                                                style: TextStyle(
-                                                                  color: Colors.greenAccent[400]
-                                                                ),
+                                                              color: Colors.greenAccent[400],
+                                                              child: Row(
+                                                               children: [
+                                                                 Text(
+                                                                   "Szczegóły",
+                                                                   style: TextStyle(
+                                                                     color: Colors.black,
+                                                                     fontWeight: FontWeight.w600
+                                                                   ),
+                                                                 ),
+                                                               ],
                                                               ),
-                                                              color: Colors.black,
-                                                            )
+                                                            ),
+                                                            SizedBox(width: 10.0,),
+                                                            RaisedButton(
+                                                              elevation: 0.0,
+                                                              onPressed: () {},
+                                                              color: Colors.greenAccent[400],
+                                                              child: Row(
+                                                                children: [
+                                                                  Text(
+                                                                    "Zjadłem",
+                                                                    style: TextStyle(
+                                                                        color: Colors.black,
+                                                                        fontWeight: FontWeight.w600
+                                                                    ),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                            ),
                                                           ],
                                                         ),
                                                       )
@@ -404,13 +422,21 @@ class _HomeState extends State<Home> {
                                               ),
                                               ClipRRect(
                                                 child: Container(
-                                                  width: 100.0,
+                                                  padding: EdgeInsets.only(right: 20.0, bottom: 10.0),
                                                   child: Column(
-
                                                     children: [
-                                                      Image.network(
-                                                        "https://media.discordapp.net/attachments/473218411670011904/757990223388082256/photo-1512621776951-a57141f2eefd.jpg?width=701&height=467",
-                                                        fit: BoxFit.cover,
+                                                      Text(
+                                                          "17:00",
+                                                        style: TextStyle(
+                                                          fontWeight: FontWeight.w600,
+                                                          fontSize: 30.0
+                                                        ),
+                                                      ),
+                                                      Text(
+                                                          "170 kcal",
+                                                        style: TextStyle(
+                                                          fontWeight: FontWeight.w600
+                                                        ),
                                                       )
                                                     ],
                                                   ),
