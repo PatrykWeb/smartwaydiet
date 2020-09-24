@@ -45,11 +45,11 @@ class _TrainingState extends State<Training> {
             Stack(
               children: [
                 Container(
-                  height: 400.0,
+                  height: 370.0,
                   width: MediaQuery.of(context).size.width,
                   decoration: BoxDecoration(
                       image: DecorationImage(
-                          image: AssetImage("images/home.jpg"),
+                          image: NetworkImage("https://media.discordapp.net/attachments/473218411670011904/758765277415997500/97a8d6ac-3ec6-4dbf-81e1-bb4688586f881x.jpg"),
                           fit: BoxFit.cover
                       )
                   ),
@@ -87,62 +87,29 @@ class _TrainingState extends State<Training> {
                         "SMARTWAYDIET",
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                            color: Colors.redAccent[400],
+                            color: Colors.greenAccent[400],
                             fontWeight: FontWeight.w600,
                             fontSize: 18.0
                         ),
                       ),
-                      SizedBox(height: 48.0,),
-                      CircularStepProgressIndicator(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              "ILOŚĆ KCAL",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w600
-                              ),
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  "2000",
-                                  style: TextStyle(
-                                      color: Colors.white
-                                  ),
-                                )
-                              ],
-                            ),
-                          ],
-                        ),
-                        totalSteps: 2000,
-                        currentStep: 1200,
-                        stepSize: 10,
-                        selectedColor: Colors.redAccent[400],
-                        unselectedColor: Colors.grey[200],
-                        padding: 0,
-                        width: 150,
-                        height: 150,
-                        selectedStepSize: 15,
-                        roundedCap: (_, __) => true,
-                      ),
-                      SizedBox(height: 20.0,),
+                      SizedBox(height: 38.0,),
+                      Image.network("https://media.discordapp.net/attachments/473218411670011904/758776712032550932/SPOILER_treadmill-machine2.png"),
+                      SizedBox(height: 10.0,),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Column(
                             children: [
                               Text(
-                                "Białka",
+                                "Spalone kcal",
                                 style: TextStyle(
                                     color: Colors.white70
                                 ),
                               ),
+                              SizedBox(height: 5.0,),
                               Container(
-                                width: 80.0,
-                                // padding: EdgeInsets.symmetric(horizontal: 170.0),
+                                width: 280.0,
+                                alignment: Alignment.center,
                                 child: StepProgressIndicator(
                                   totalSteps: 100,
                                   currentStep: 32,
@@ -164,87 +131,7 @@ class _TrainingState extends State<Training> {
                                 ),
                               ),
                               Text(
-                                "220g",
-                                style: TextStyle(
-                                    color: Colors.white
-                                ),
-                              )
-                            ],
-                          ),
-                          SizedBox(width: 35.0,),
-                          Column(
-                            children: [
-                              Text(
-                                "Węglowodany",
-                                style: TextStyle(
-                                    color: Colors.white70
-                                ),
-                              ),
-                              Container(
-                                width: 80.0,
-                                // padding: EdgeInsets.symmetric(horizontal: 170.0),
-                                child: StepProgressIndicator(
-                                  totalSteps: 100,
-                                  currentStep: 32,
-                                  size: 8,
-                                  padding: 0,
-                                  selectedColor: Colors.yellow,
-                                  unselectedColor: Colors.cyan,
-                                  roundedEdges: Radius.circular(10),
-                                  selectedGradientColor: LinearGradient(
-                                    begin: Alignment.topLeft,
-                                    end: Alignment.bottomRight,
-                                    colors: [Colors.greenAccent[400], Colors.greenAccent[400]],
-                                  ),
-                                  unselectedGradientColor: LinearGradient(
-                                    begin: Alignment.topLeft,
-                                    end: Alignment.bottomRight,
-                                    colors: [Colors.white, Colors.white],
-                                  ),
-                                ),
-                              ),
-                              Text(
-                                "210g",
-                                style: TextStyle(
-                                    color: Colors.white
-                                ),
-                              ),
-                            ],
-                          ),
-                          SizedBox(width: 35.0,),
-                          Column(
-                            children: [
-                              Text(
-                                "Tłuszcze",
-                                style: TextStyle(
-                                    color: Colors.white70
-                                ),
-                              ),
-                              Container(
-                                width: 80.0,
-                                // padding: EdgeInsets.symmetric(horizontal: 170.0),
-                                child: StepProgressIndicator(
-                                  totalSteps: 100,
-                                  currentStep: 82,
-                                  size: 8,
-                                  padding: 0,
-                                  selectedColor: Colors.yellow,
-                                  unselectedColor: Colors.cyan,
-                                  roundedEdges: Radius.circular(10),
-                                  selectedGradientColor: LinearGradient(
-                                    begin: Alignment.topLeft,
-                                    end: Alignment.bottomRight,
-                                    colors: [Colors.greenAccent[400], Colors.greenAccent[400]],
-                                  ),
-                                  unselectedGradientColor: LinearGradient(
-                                    begin: Alignment.topLeft,
-                                    end: Alignment.bottomRight,
-                                    colors: [Colors.white, Colors.white],
-                                  ),
-                                ),
-                              ),
-                              Text(
-                                "200g",
+                                "400 kcal",
                                 style: TextStyle(
                                     color: Colors.white
                                 ),
@@ -253,7 +140,7 @@ class _TrainingState extends State<Training> {
                           ),
                         ],
                       ),
-                      SizedBox(height: 30.0,),
+                      SizedBox(height: 26.0,),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -286,7 +173,7 @@ class _TrainingState extends State<Training> {
                             ),
                           ),
                           Container(
-                              height: 340.0,
+                              height: 370.0,
                               width: MediaQuery.of(context).size.width,
                               child: FutureBuilder(
                                 future: takeData(),
