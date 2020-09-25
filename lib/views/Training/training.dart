@@ -58,26 +58,6 @@ class _TrainingState extends State<Training> {
                   ),
                 ),
                 Container(
-                  padding: EdgeInsets.symmetric(horizontal: 0.0, vertical: 50.0),
-                  child: Column(
-                    children: [
-                      Row(
-                        children: [
-                          FlatButton(
-                            onPressed: () {
-                              sharedPreferences.clear();
-                              sharedPreferences.commit();
-                              Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => Login(),), (route) => false);
-                              print(sharedPreferences.getString("token"));
-                            },
-                            child: Image.asset("images/logout.png"),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
                   padding: EdgeInsets.symmetric(horizontal: 0.0, vertical: 63.0),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -303,19 +283,7 @@ class _TrainingState extends State<Training> {
                                                   padding: EdgeInsets.only(right: 20.0, bottom: 10.0),
                                                   child: Column(
                                                     children: [
-                                                      Text(
-                                                        "17:00",
-                                                        style: TextStyle(
-                                                            fontWeight: FontWeight.w600,
-                                                            fontSize: 30.0
-                                                        ),
-                                                      ),
-                                                      Text(
-                                                        "170 kcal",
-                                                        style: TextStyle(
-                                                            fontWeight: FontWeight.w600
-                                                        ),
-                                                      )
+                                                      Image.network("https://cdn.discordapp.com/attachments/473218411670011904/759158207884034119/icons8-bench-press-50.png")
                                                     ],
                                                   ),
                                                 ),
