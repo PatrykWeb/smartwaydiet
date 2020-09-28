@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smartwaydiet/views/AllDiets/all_diets.dart';
 import 'package:smartwaydiet/views/Home/home.dart';
 import 'package:smartwaydiet/views/Training/training.dart';
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
@@ -44,7 +45,7 @@ class _BottomBarState extends State<BottomBar> {
           },
           children: <Widget>[
             Home(),
-            Container(color: Colors.red,),
+            AllDiet(),
             Training(),
             Container(color: Colors.blue,),
           ],
@@ -70,7 +71,7 @@ class _BottomBarState extends State<BottomBar> {
           ),
           BottomNavyBarItem(
             textAlign: TextAlign.center,
-            title: Text('Item One'),
+            title: Text('Cała dieta'),
             icon: Row(
               children: [
                 Image.network("https://cdn.discordapp.com/attachments/473218411670011904/756138030431076462/dish.png")

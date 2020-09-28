@@ -265,7 +265,7 @@ class _TrainingState extends State<Training> {
                                                                 child: Row(
                                                                   children: [
                                                                     Text(
-                                                                      "Zjadłem",
+                                                                      "Czwiczyłem",
                                                                       style: TextStyle(
                                                                           color: Colors.black,
                                                                           fontWeight: FontWeight.w600
