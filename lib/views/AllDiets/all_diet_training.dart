@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'dart:convert';
-import 'package:flutter/cupertino.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smartwaydiet/services/models.dart';
 import "package:http/http.dart" as http;
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:smartwaydiet/views/AllDiets/all_diet_training.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'dart:convert';
 
-class AllDiet extends StatefulWidget {
+class AllDietTraining extends StatefulWidget {
   @override
-  _AllDietState createState() => _AllDietState();
+  _AllDietTrainingState createState() => _AllDietTrainingState();
 }
 
 SharedPreferences sharedPreferences;
@@ -27,8 +24,7 @@ Future<List<Products>>takeData() async {
   return productsList;
 }
 
-
-class _AllDietState extends State<AllDiet> {
+class _AllDietTrainingState extends State<AllDietTraining> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,23 +44,17 @@ class _AllDietState extends State<AllDiet> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    SizedBox(width: 130.0),
+                    SizedBox(width: 110.0),
                     Text(
                       "SMARTWAYDIET",
                       style: TextStyle(
-                        fontSize: 20.0,
-                        color: Colors.greenAccent[400],
-                        fontWeight: FontWeight.w600
+                          fontSize: 20.0,
+                          color: Colors.greenAccent[400],
+                          fontWeight: FontWeight.w600
                       ),
                     ),
-                    SizedBox(width: 35.0,),
-                    FlatButton(
-                      child: Image.network("https://cdn.discordapp.com/attachments/473218411670011904/761701695662981160/dumbbell2.png"),
-                      onPressed: () {
-                        Navigator.push(context,
-                            new MaterialPageRoute(builder: (context) => AllDietTraining()));
-                      },
-                    )
+                    SizedBox(width: 70.0,),
+                    Image.network("https://cdn.discordapp.com/attachments/473218411670011904/761701695662981160/dumbbell2.png")
                   ],
                 ),
                 SizedBox(height: 20.0,),
@@ -79,7 +69,7 @@ class _AllDietState extends State<AllDiet> {
                     ),
                     SizedBox(width: 10.0,),
                     Icon(
-                        Icons.arrow_forward,
+                      Icons.arrow_forward,
                       color: Colors.greenAccent[400],
                     )
                   ],
@@ -97,9 +87,9 @@ class _AllDietState extends State<AllDiet> {
                               borderRadius: BorderRadius.circular(20.0),
                             ),
                             child: Text(
-                                "Poniedziałek",
+                              "Poniedziałek",
                               style: TextStyle(
-                                fontWeight: FontWeight.w600
+                                  fontWeight: FontWeight.w600
                               ),
                             ),
                             color: Colors.greenAccent[400],
@@ -112,7 +102,7 @@ class _AllDietState extends State<AllDiet> {
                             ),
                             color: Colors.greenAccent[400],
                             child: Text(
-                                "Wtorek",
+                              "Wtorek",
                               style: TextStyle(
                                   fontWeight: FontWeight.w600
                               ),
@@ -126,7 +116,7 @@ class _AllDietState extends State<AllDiet> {
                             ),
                             color: Colors.greenAccent[400],
                             child: Text(
-                                "Środa",
+                              "Środa",
                               style: TextStyle(
                                   fontWeight: FontWeight.w600
                               ),
@@ -140,7 +130,7 @@ class _AllDietState extends State<AllDiet> {
                             ),
                             color: Colors.greenAccent[400],
                             child: Text(
-                                "Czwartek",
+                              "Czwartek",
                               style: TextStyle(
                                   fontWeight: FontWeight.w600
                               ),
@@ -154,7 +144,7 @@ class _AllDietState extends State<AllDiet> {
                             ),
                             color: Colors.greenAccent[400],
                             child: Text(
-                                "Piątek",
+                              "Piątek",
                               style: TextStyle(
                                   fontWeight: FontWeight.w600
                               ),
