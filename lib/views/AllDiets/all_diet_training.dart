@@ -32,7 +32,7 @@ class _AllDietTrainingState extends State<AllDietTraining> {
       body: Container(
         decoration: BoxDecoration(
             image: DecorationImage(
-                image: NetworkImage("https://cdn.discordapp.com/attachments/473218411670011904/760547115398201434/diet.jpg"),
+                image: NetworkImage("https://cdn.discordapp.com/attachments/473218411670011904/762757511777484800/Bodybuilding_Men_511666.jpg"),
                 fit: BoxFit.cover
             )
         ),
@@ -41,10 +41,9 @@ class _AllDietTrainingState extends State<AllDietTraining> {
             child: Column(
               children: [
                 SizedBox(height: 20.0,),
-                Row(
+                Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    SizedBox(width: 110.0),
                     Text(
                       "SMARTWAYDIET",
                       style: TextStyle(
@@ -53,8 +52,12 @@ class _AllDietTrainingState extends State<AllDietTraining> {
                           fontWeight: FontWeight.w600
                       ),
                     ),
-                    SizedBox(width: 70.0,),
-                    Image.network("https://cdn.discordapp.com/attachments/473218411670011904/761701695662981160/dumbbell2.png")
+                    // Text(
+                    //     "Trening",
+                    //   style: TextStyle(
+                    //     color: Colors.white54
+                    //   ),
+                    // )
                   ],
                 ),
                 SizedBox(height: 20.0,),

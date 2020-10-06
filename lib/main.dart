@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smartwaydiet/views/AllDiets/all_diet_training.dart';
 import 'package:smartwaydiet/views/Auth/login.dart';
 import 'package:flutter/services.dart';
 void main() {
@@ -6,7 +7,8 @@ void main() {
   runApp(MaterialApp(
     initialRoute: "/",
     routes: {
-      "/": (context) => Login()
+      "/": (context) => Login(),
+      "/training_all": (context) => AllDietTraining()
     },
     theme: ThemeData(fontFamily: "Raleway"),
   ));

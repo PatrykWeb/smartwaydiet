@@ -61,8 +61,9 @@ class _AllDietState extends State<AllDiet> {
                     FlatButton(
                       child: Image.network("https://cdn.discordapp.com/attachments/473218411670011904/761701695662981160/dumbbell2.png"),
                       onPressed: () {
-                        Navigator.push(context,
-                            new MaterialPageRoute(builder: (context) => AllDietTraining()));
+                        Navigator.pushNamed(context, "/training_all");
+                        // Navigator.push(context,
+                        //     new MaterialPageRoute(builder: (context) => AllDietTraining()));
                       },
                     )
                   ],
